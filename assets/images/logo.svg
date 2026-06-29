@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-label="Topline Stainless Worx">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8E8E8"/>
+      <stop offset="0.5" stop-color="#C0C0C0"/>
+      <stop offset="1" stop-color="#8a8a8a"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagon badge -->
+  <g transform="translate(4,4)">
+    <polygon points="28,0 52,14 52,42 28,56 4,42 4,14"
+             fill="none" stroke="url(#steel)" stroke-width="2"/>
+    <polygon points="28,8 45,18 45,38 28,48 11,38 11,18"
+             fill="none" stroke="#FF6B1A" stroke-width="1.5"/>
+    <text x="28" y="36" text-anchor="middle"
+          font-family="'Bebas Neue', sans-serif" font-size="26" fill="url(#steel)">T</text>
+  </g>
+  <!-- Wordmark -->
+  <text x="70" y="30" font-family="'Bebas Neue','Barlow Condensed',sans-serif"
+        font-size="26" letter-spacing="1.5" fill="#E8E8E8">TOPLINE</text>
+  <text x="70" y="52" font-family="'Barlow Condensed',sans-serif" font-weight="600"
+        font-size="15" letter-spacing="3.4" fill="#FF6B1A">STAINLESS WORX</text>
+</svg>
