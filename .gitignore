@@ -21,3 +21,6 @@ ehthumbs.db
 *.log
 npm-debug.log*
 *.tmp
+
+# ───────────── Internal client deliverables (never deploy) ─────────────
+_reports/
