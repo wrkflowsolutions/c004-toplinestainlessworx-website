@@ -375,7 +375,10 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   position: relative;
   z-index: 2;
   max-width: 860px;
-  padding: var(--space-16) 0;
+  /* Vertical only — keep the horizontal padding inherited from .container so
+     the hero copy never sits flush against the viewport edge on narrow screens. */
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
 }
 .hero__logo {
   width: 180px;
@@ -947,6 +950,10 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
 }
+/* Let the grid columns and form fields shrink below their intrinsic width so
+   they never force the layout wider than a narrow phone viewport. */
+.contact-layout > * { min-width: 0; }
+.form__control { min-width: 0; }
 .form {
   background: var(--color-surface);
   border: var(--border-steel);
@@ -1025,7 +1032,7 @@ textarea.form__control { resize: vertical; min-height: 120px; }
   color: var(--color-spark);
   margin-bottom: var(--space-2);
 }
-.info-card__value { color: var(--color-chrome); }
+.info-card__value { color: var(--color-chrome); overflow-wrap: break-word; }
 .info-card__value a:hover { color: var(--color-spark); }
 .map-frame {
   width: 100%;
@@ -1095,7 +1102,7 @@ textarea.form__control { resize: vertical; min-height: 120px; }
   margin-bottom: var(--space-6);
 }
 .footer__links { display: grid; gap: var(--space-2); }
-.footer__links li, .footer__links a { color: var(--color-muted); font-size: var(--text-sm); }
+.footer__links li, .footer__links a { color: var(--color-muted); font-size: var(--text-sm); overflow-wrap: break-word; }
 .footer__links a:hover { color: var(--color-spark); }
 .footer__bottom {
   display: flex;
@@ -1228,6 +1235,17 @@ textarea.form__control { resize: vertical; min-height: 120px; }
   .trust-bar__item { border-left: none !important; border-bottom: var(--border-steel); }
   .stat-row { grid-template-columns: 1fr; }
   .hero__actions .btn, .cta-strip__actions .btn { width: 100%; }
+  /* Stack the footer so its columns get full width — a two-column footer
+     squeezes the long email/address enough to push past the viewport. */
+  .footer__grid { grid-template-columns: 1fr; }
+}
+
+/* Very narrow phones (≤340px, e.g. iPhone SE 1st-gen): the 70px lockup is wide
+   enough to push the nav — and with it the whole layout — past the viewport.
+   Cap it here only; 360px+ keeps the full-size logo. !important overrides the
+   inline height on the <img>. */
+@media (max-width: 340px) {
+  .nav__logo img { height: 48px !important; }
 }
 
 /* ---------- REDUCED MOTION ---------- */
